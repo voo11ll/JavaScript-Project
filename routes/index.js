@@ -6,30 +6,30 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/* Страница opera */ 
-router.get('/opera', function(req, res, next){
+/* Страница stars */ 
+router.get('/stars', function(req, res, next){
   res.render('hero', {
-    title: "Opera",
-    picture: "images/opera.png",
-    desc: 'Веб-браузер и пакет прикладных программ для работы в Интернете, выпускаемый компанией Opera Software'
+    title: "Звёздная ночь",
+    picture: "images/stars.png",
+    desc: 'Одна из наиболее известных картин нидерландского художника-постимпрессиониста Винсента Ван Гога. Представляет вид из восточного окна спальни Ван Гога в Сен-Реми-де-Прованс на предрассветное небо и вымышленную деревню. Картина написана в июне 1889 года; с 1941 года хранится в Музее современного искусства в Нью-Йорке.'
   })
 });
 
-/* Страница chrome */ 
-router.get('/chrome', function(req, res, next){
+/* Страница giraffe */ 
+router.get('/giraffe', function(req, res, next){
   res.render('hero', {
-    title: "Chrome",
-    picture: "images/chrome.png",
-    desc: 'Браузер, разрабатываемый компанией Google на основе свободного браузера Chromium и движка Blink.'
+    title: "Жираф в огне",
+    picture: "images/giraffe.png",
+    desc: '«Жираф в огне» – одна из известнейших картин Сальвадора Дали, объединяющая сразу несколько излюбленных образов художника. Центральная фигура – женщина с выдвижными ящиками на теле'
   })
 });
 
-/* Страница tor */ 
-router.get('/tor', function(req, res, next){
+/* Страница blue */ 
+router.get('/blue', function(req, res, next){
   res.render('hero', {
-    title: "TOR",
-    picture: "images/tor.png",
-    desc: 'Свободное и открытое программное обеспечение для реализации второго и третьего поколения так называемой луковой маршрутизации.'
+    title: "Голубая обнаженная",
+    picture: "images/blue.png",
+    desc: 'Серия цветных литографий Анри Матисса, выполненных из вырезов, изображающих обнаженные фигуры в различных позах.'
   })
 });
 
