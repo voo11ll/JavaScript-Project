@@ -8,6 +8,8 @@ var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/project')
 var session = require("express-session")
 
+var Hero = require("./models/hero").Hero
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var heroesRouter = require('./routes/heroes')
@@ -32,6 +34,23 @@ secret: "paintings",
 cookie:{maxAge:60*1000},
 store: MongoStore.create({mongoUrl: 'mongodb://localhost/project'})
 }))
+
+app.use(function(req, res, next){
+  req.session.counter = req.session.counter +1 || 1
+  next()
+})
+
+app.use(function(req, res, next){
+  res.locals.nav = []
+
+  Hero.find(null,{_id:0,title:1,nick:1},function(err,result){
+      if(err) throw err
+      res.locals.nav = result
+      next()
+  })
+})
+
+app.use(require("./middleware/createMenu.js"))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

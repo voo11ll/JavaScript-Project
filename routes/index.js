@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
       req.session.greeting = "Hi!!!!"
       res.render('index', {
                               title: 'Art Gallery',
-                              menu: menu
+                              menu: menu,
+                              counter:req.session.counter
                           });
       })
   });
